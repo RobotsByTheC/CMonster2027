@@ -14,6 +14,7 @@ public class RealSwerveIO implements SwerveIO {
   public RealSwerveIO() {
     gyro = new Pigeon2(GYRO_DEVICE_ID, CAN_BUS);
 
+    DevicePinger.addDevice(gyro::isConnected, GYRO_DEVICE_ID);
   }
 
   @Override

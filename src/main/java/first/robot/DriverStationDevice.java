@@ -16,6 +16,9 @@ public class DriverStationDevice {
     rightFlightStick = new CommandJoystick(RIGHT_JOYSTICK_PORT);
     controller = new CommandXboxController(CONTROLLER_PORT);
 
+    DevicePinger.addDevice(() -> leftFlightStick.getHID().isConnected(), LEFT_JOYSTICK_PORT);
+    DevicePinger.addDevice(() -> rightFlightStick.getHID().isConnected(), RIGHT_JOYSTICK_PORT);
+    DevicePinger.addDevice(() -> controller.getHID().isConnected(), CONTROLLER_PORT);
   }
 
   public double getLeftX() {
