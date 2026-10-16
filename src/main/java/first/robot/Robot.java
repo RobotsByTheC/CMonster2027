@@ -11,7 +11,11 @@ import org.wpilib.framework.TimedRobot;
 
 @Logged
 public class Robot extends TimedRobot {
-  public Robot() {}
+  private final DriverStation driverStation;
+
+  public Robot() {
+    driverStation = new DriverStation();
+  }
 
   @Override
   public void robotPeriodic() {
