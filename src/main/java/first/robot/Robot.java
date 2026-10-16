@@ -9,13 +9,16 @@ import org.wpilib.driverstation.DriverStation;
 import org.wpilib.epilogue.Epilogue;
 import org.wpilib.epilogue.Logged;
 import org.wpilib.framework.TimedRobot;
+import org.wpilib.system.DataLogManager;
 
 @Logged
 public class Robot extends TimedRobot {
   private final DriverStationDevice driverStationDevice;
 
   public Robot() {
+    DataLogManager.start();
     driverStationDevice = new DriverStationDevice();
+    DriverStation.startDataLog(DataLogManager.getLog(), false);
   }
 
   @Override
