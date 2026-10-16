@@ -4,6 +4,7 @@
 
 package first.robot;
 
+import first.robot.dashboard.DevicePinger;
 import org.wpilib.command3.Scheduler;
 import org.wpilib.driverstation.DriverStation;
 import org.wpilib.epilogue.Epilogue;
@@ -16,14 +17,20 @@ public class Robot extends TimedRobot {
   private final DriverStationDevice driverStationDevice;
 
   public Robot() {
+    DevicePinger.create();
     DataLogManager.start();
     driverStationDevice = new DriverStationDevice();
+
+    DevicePinger.finalizeDeviceConnectionList();
     DriverStation.startDataLog(DataLogManager.getLog(), false);
   }
+
+
 
   @Override
   public void robotPeriodic() {
     Scheduler.getDefault().run();
     Epilogue.update(this);
+    DevicePinger.periodicUpdate();
   }
 }
