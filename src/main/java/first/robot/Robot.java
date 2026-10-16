@@ -5,16 +5,17 @@
 package first.robot;
 
 import org.wpilib.command3.Scheduler;
+import org.wpilib.driverstation.DriverStation;
 import org.wpilib.epilogue.Epilogue;
 import org.wpilib.epilogue.Logged;
 import org.wpilib.framework.TimedRobot;
 
 @Logged
 public class Robot extends TimedRobot {
-  private final DriverStation driverStation;
+  private final DriverStationDevice driverStationDevice;
 
   public Robot() {
-    driverStation = new DriverStation();
+    driverStationDevice = new DriverStationDevice();
   }
 
   @Override
