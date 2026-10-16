@@ -7,10 +7,10 @@ package first.robot;
 import org.wpilib.command3.Scheduler;
 import org.wpilib.epilogue.Epilogue;
 import org.wpilib.epilogue.Logged;
-import org.wpilib.framework.OpModeRobot;
+import org.wpilib.framework.TimedRobot;
 
 @Logged
-public class Robot extends OpModeRobot {
+public class Robot extends TimedRobot {
   public Robot() {}
 
   @Override
